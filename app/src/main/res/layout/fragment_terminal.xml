@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="517dp">
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bk_black">
+
+            <LinearLayout
+                android:id="@+id/valve_1"
+                android:layout_width="wrap_content"
+                android:layout_height="145dp"
+                android:layout_centerHorizontal="true"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <View
+                    android:id="@+id/valve_1_view"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/valve_2"
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <View
+                    android:id="@+id/valve_2_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/valve_3"
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <View
+                    android:id="@+id/valve_3_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/valve_4"
+                android:layout_width="wrap_content"
+                android:layout_height="145dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <View
+                    android:id="@+id/valve_4_view"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/black" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView_one"
+                android:layout_width="92dp"
+                android:layout_height="92dp"
+                android:layout_above="@+id/valve_2"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="24dp"
+                android:layout_toStartOf="@+id/valve_1"
+                app:srcCompat="@drawable/ic_one" />
+
+            <ImageView
+                android:id="@+id/imageView_one_x"
+                android:layout_width="92dp"
+                android:layout_height="92dp"
+                android:layout_alignStart="@+id/imageView_one"
+                android:layout_alignTop="@+id/imageView_one"
+                android:layout_alignEnd="@+id/imageView_one"
+                android:layout_alignBottom="@+id/imageView_one"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-0dp"
+                android:layout_marginEnd="-0dp"
+                android:layout_marginBottom="-0dp"
+                app:srcCompat="@drawable/ic_x_black" />
+
+            <ImageView
+                android:id="@+id/imageView_two"
+                android:layout_width="92dp"
+                android:layout_height="92dp"
+                android:layout_below="@+id/valve_2"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="25dp"
+                android:layout_toStartOf="@+id/valve_4"
+                app:srcCompat="@drawable/ic_two" />
+
+            <ImageView
+                android:id="@+id/imageView_two_x"
+                android:layout_width="92dp"
+                android:layout_height="92dp"
+                android:layout_alignStart="@+id/imageView_two"
+                android:layout_alignTop="@+id/imageView_two"
+                android:layout_alignEnd="@+id/imageView_two"
+                android:layout_alignBottom="@+id/imageView_two"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-0dp"
+                android:layout_marginEnd="-0dp"
+                android:layout_marginBottom="-0dp"
+                app:srcCompat="@drawable/ic_x_black" />
+
+            <ImageView
+                android:id="@+id/imageView_three"
+                android:layout_width="92dp"
+                android:layout_height="92dp"
+                android:layout_below="@+id/valve_3"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_toEndOf="@+id/valve_4"
+                app:srcCompat="@drawable/ic_three" />
+
+            <ImageView
+                android:id="@+id/imageView_three_x"
+                android:layout_width="92dp"
+                android:layout_height="92dp"
+                android:layout_alignStart="@+id/imageView_three"
+                android:layout_alignTop="@+id/imageView_three"
+                android:layout_alignEnd="@+id/imageView_three"
+                android:layout_alignBottom="@+id/imageView_three"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-0dp"
+                android:layout_marginEnd="-0dp"
+                android:layout_marginBottom="-0dp"
+                app:srcCompat="@drawable/ic_x_black" />
+
+            <ImageView
+                android:id="@+id/imageView_four"
+                android:layout_width="92dp"
+                android:layout_height="92dp"
+                android:layout_above="@+id/valve_3"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="24dp"
+                android:layout_toEndOf="@+id/valve_1"
+                app:srcCompat="@drawable/ic_four" />
+
+            <ImageView
+                android:id="@+id/imageView_four_x"
+                android:layout_width="92dp"
+                android:layout_height="92dp"
+                android:layout_alignStart="@+id/imageView_four"
+                android:layout_alignTop="@+id/imageView_four"
+                android:layout_alignEnd="@+id/imageView_four"
+                android:layout_alignBottom="@+id/imageView_four"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-0dp"
+                android:layout_marginEnd="-0dp"
+                android:layout_marginBottom="-0dp"
+                app:srcCompat="@drawable/ic_x_black" />
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/receive_text"
+        android:layout_width="match_parent"
+        android:layout_height="257dp"
+        android:layout_weight="1"
+        android:freezesText="true"
+        android:gravity="bottom"
+        android:scrollbars="vertical"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <View
+        android:layout_width="match_parent"
+        android:background="?android:attr/listDivider"
+        android:layout_height="2dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/send_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="text|textNoSuggestions"
+            android:singleLine="true" />
+
+        <ImageButton
+            android:id="@+id/send_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_send_white_24dp" />
+    </LinearLayout>
+
+</LinearLayout>
+

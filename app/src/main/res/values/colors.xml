@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#d84315</color>
+    <color name="colorPrimaryDark">#bf360c</color>
+    <color name="colorAccent">#ff6e40</color>
+
+    <color name="colorRecieveText">#00FF00</color>
+    <color name="colorSendText">#82CAFF</color>
+    <color name="colorStatusText">#FFDB58</color>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="background_gray">#f2f2f2</color>
+    <color name="background_gray1">#f8f8f8</color>
+    <color name="dcdcdc">#dcdcdc</color>
+    <color name="text_gray">#666666</color>
+    <color name="text_gray3">#333333</color>
+    <color name="text_gray9">#999999</color>
+    <color name="text_gray_ccc">#cccccc</color>
+    <color name="text_base">#4162ff</color>
+    <color name="text_base_press">#44a9fc</color>
+    <color name="text_base_title">#2380fe</color>
+    <color name="text_black">#1e1e1e</color>
+    <color name="text_black1">#787878</color>
+    <color name="yellow">#CCCC00</color>
+    <color name="line_gray">#dcdcdc</color>
+
+    <color name="black_touming">#88000000</color>
+    <color name="black_touming1">#11000000</color>
+    <color name="circle_touming">#88bac5fc</color>
+    <color name="touming">#00000000</color>
+
+    <color name="violet_start">#B283FE</color>
+    <color name="violet_end">#8D46FF</color>
+
+    <color name="home_yellow">#F7BA04</color>
+    <color name="home_blue">#1C85FB</color>
+    <color name="home_violet">#B554FF</color>
+    <color name="home_orange_shallow">#F4A443</color>
+    <color name="home_orange">#FF7443</color>
+
+    <color name="xzjs_yellow_start">#FFE240</color>
+    <color name="xzjs_yellow_end">#FFCF4C</color>
+    <color name="xzjs_blue_start">#00D4FF</color>
+    <color name="xzjs_blue_end">#00B7FF</color>
+    <color name="xzjs_green_start">#4FFFCB</color>
+    <color name="xzjs_green_end">#02E8AF</color>
+
+    <color name="xxjd_start">#FFDA60</color>
+    <color name="xxjd_end">#FFC929</color>
+
+    <color name="lyck_start">#44C3F8</color>
+    <color name="lyck_end">#1C85FB</color>
+    <color name="blue3">#ff43a3fd</color>
+
+    <color name="xxcj_choice_touming">#5544C3F8</color>
+
+    <color name="success_1">#effbf5</color>
+    <color name="success_2">#19b885</color>
+    <color name="warning_1">#fff1f1</color>
+    <color name="warning_2">#ff2323</color>
+    <color name="blue4">#59A9FD</color>
+    <color name="blue2">#198FFB</color>
+    <color name="divider">#ffdcdcdc</color>
+
+    <color name="choice">#f4ea2a</color>
+</resources>
