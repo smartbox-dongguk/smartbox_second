@@ -9,7 +9,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -22,12 +24,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.bigkoo.pickerview.builder.TimePickerBuilder;
+import com.bigkoo.pickerview.listener.OnTimeSelectListener;
+import com.bigkoo.pickerview.view.TimePickerView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class TerminalFragment extends Fragment implements ServiceConnection, SerialListener {
 
@@ -46,6 +56,10 @@ public class TerminalFragment extends Fragment implements ServiceConnection, Ser
     private boolean pendingNewline = false;
     private String newline = TextUtil.newline_crlf;
 
+    private ImageView imageView_one_x,imageView_two_x,imageView_three_x,imageView_four_x;
+    private TextView main_time;
+    private TimePickerView pvTime = null;
+    private TipsDialog tipsDialog;
 
     /*
      * Lifecycle
@@ -129,6 +143,35 @@ public class TerminalFragment extends Fragment implements ServiceConnection, Ser
         receiveText = view.findViewById(R.id.receive_text);                          // TextView performance decreases with number of spans
         receiveText.setTextColor(getResources().getColor(R.color.colorRecieveText)); // set as default color to reduce number of spans
         receiveText.setMovementMethod(ScrollingMovementMethod.getInstance());
+
+        imageView_one_x = view.findViewById(R.id.imageView_one_x);
+        imageView_two_x = view.findViewById(R.id.imageView_two_x);
+        imageView_three_x = view.findViewById(R.id.imageView_three_x);
+        imageView_four_x = view.findViewById(R.id.imageView_four_x);
+        main_time = view.findViewById(R.id.main_time);
+        main_time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (pvTime == null){
+                    pvTime = new TimePickerBuilder(getActivity(), new OnTimeSelectListener() {
+                        @Override
+                        public void onTimeSelect(Date date, View v) {
+                            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+                            main_time.setText(sdf.format(date));
+                        }
+                    })
+                            .setType(new boolean[]{false, false, false, true, true, true})
+                            .setCancelText("Cancel")
+                            .setSubmitText("Sure")
+                            .setLabel("Y","M","D","H","M","S")
+                            .build();
+                }
+                pvTime.show();
+            }
+        });
+        tipsDialog = new TipsDialog(getActivity());
+        startThread();
+
 
         sendText = view.findViewById(R.id.send_text);
         hexWatcher = new TextUtil.HexWatcher(sendText);
@@ -228,6 +271,7 @@ public class TerminalFragment extends Fragment implements ServiceConnection, Ser
     private void receive(byte[] data) {
         if(hexEnabled) {
             receiveText.append(TextUtil.toHexString(data) +'\n');
+            setIsVisible(TextUtil.toHexString(data));
         } else {
             String msg = new String(data);  // 이 부분에 넣으면 텍스트 출력됨
             if(newline.equals(TextUtil.newline_crlf) && msg.length() > 0) {
@@ -242,7 +286,34 @@ public class TerminalFragment extends Fragment implements ServiceConnection, Ser
                 pendingNewline = msg.charAt(msg.length() - 1) == '\r';
             }
             receiveText.append(TextUtil.toCaretString(msg, newline.length() != 0));
+            setIsVisible(TextUtil.toCaretString(msg, newline.length() != 0)+"");
             // receiveText.append("test\n"); receivText에 넣어야 값 출력
+        }
+    }
+
+    private void setIsVisible(String content){
+        try {
+
+            if (content.equals("1on")){
+                imageView_one_x.setVisibility(View.VISIBLE);
+            } else if (content.equals("1off")){
+                imageView_one_x.setVisibility(View.GONE);
+            } else if (content.equals("2on")){
+                imageView_two_x.setVisibility(View.VISIBLE);
+            } else if (content.equals("2off")){
+                imageView_two_x.setVisibility(View.GONE);
+            } else if (content.equals("3on")){
+                imageView_three_x.setVisibility(View.VISIBLE);
+            } else if (content.equals("3off")){
+                imageView_three_x.setVisibility(View.GONE);
+            } else if (content.equals("4on")){
+                imageView_four_x.setVisibility(View.VISIBLE);
+            } else if (content.equals("4off")){
+                imageView_four_x.setVisibility(View.GONE);
+            }
+
+        }catch (Exception e){
+
         }
     }
 
@@ -280,4 +351,33 @@ public class TerminalFragment extends Fragment implements ServiceConnection, Ser
 
     // data의 값이 1,2,3,4 on이면 X사라지고 off이면 X 생성
 
+    private void startThread(){
+        new Thread(){
+            @Override
+            public void run() {
+                do {
+                    try {
+                        Message message=new Message();
+                        message.what=1;
+                        handler.sendMessage(message);
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }while (true);
+            }
+        }.start();
+    }
+
+    private Handler handler=new Handler(){
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            Date nowDate = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+            String timeStr = sdf.format(nowDate);
+            if (timeStr.equals(main_time.getText().toString())){
+                tipsDialog.show();
+            }
+        }
+    };
 }
